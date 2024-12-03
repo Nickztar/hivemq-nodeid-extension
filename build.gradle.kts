@@ -5,14 +5,14 @@ plugins {
 }
 
 group = "com.hivemq.extensions"
-description = "HiveMQ 4 Hello World Extension - a simple reference for all extension developers"
+description = "HiveMQ 4 NodeId exposer - a simple rest api exposer for the cluster nodeid"
 
 hivemqExtension {
-    name = "Hello World Extension"
+    name = "NodeID exposer"
     author = "HiveMQ"
     priority = 1000
     startPriority = 1000
-    mainClass = "$group.helloworld.HelloWorldMain"
+    mainClass = "$group.nodeid.NodeIdExtension"
     sdkVersion = "$version"
 
     resources {
