@@ -48,6 +48,12 @@ license {
     mapping("java", "SLASHSTAR_STYLE")
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 /* ******************** debugging ******************** */
 
 tasks.prepareHivemqHome {

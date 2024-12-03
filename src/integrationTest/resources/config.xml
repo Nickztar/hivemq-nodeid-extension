@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!--
 
     Copyright 2018-present HiveMQ GmbH
@@ -15,20 +16,27 @@
     limitations under the License.
 
 -->
-<configuration>
+<hivemq>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%-30(%d %level)- %msg%n%ex</pattern>
-        </encoder>
-    </appender>
+    <listeners>
+        <tcp-listener>
+            <port>1883</port>
+            <bind-address>0.0.0.0</bind-address>
+        </tcp-listener>
+    </listeners>
 
-    <root level="DEBUG">
-        <appender-ref ref="STDOUT"/>
-    </root>
+    <cluster>
+        <enabled>true</enabled>
+        <transport>
+            <tcp/>
+        </transport>
+        <discovery>
+            <extension/>
+        </discovery>
+    </cluster>
 
-    <!-- silence test containers (https://www.testcontainers.org/supported_docker_environment/logging_config/) -->
-    <logger name="org.testcontainers" level="INFO"/>
-    <logger name="com.github.dockerjava" level="WARN"/>
+    <anonymous-usage-statistics>
+        <enabled>true</enabled>
+    </anonymous-usage-statistics>
 
-</configuration>
+</hivemq>
